@@ -17,8 +17,10 @@ class ManageProjectsTest extends TestCase
     {
         $this->get('/projects')->assertRedirect('/login');
         $this->get('/projects/create')->assertRedirect('/login');
+        $this->get('/projects/1/edit')->assertRedirect('login');
         $this->get('/projects/1')->assertRedirect('/login');
         $this->post('/projects')->assertRedirect('/login');
+        $this->patch('/projects/1')->assertRedirect('/login');
     }
 
     /** @test */
@@ -47,13 +49,36 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
+    public function an_authenticated_user_cannot_view_the_edit_project_page_of_the_others()
+    {
+        $this->signIn();
+
+        $project = factory('App\Project')->create();
+
+        $this->get($project->path() . '/edit')->assertStatus(403);
+    }
+
+    /** @test */
     public function a_user_can_update_a_project()
     {
         $project = ProjectFactory::create();
 
         $this->actingAs($project->owner)
-            ->patch($project->path(), $attributes = ['notes' => 'Changed'])
+            ->patch($project->path(), $attributes = ['title' => 'Changed', 'description' => 'Changed', 'notes' => 'Changed'])
             ->assertRedirect($project->path());
+
+        $this->get($project->path() . '/edit')->assertOk();
+
+        $this->assertDatabaseHas('projects', $attributes);
+    }
+
+    /** @test */
+    function a_user_can_update_a_projects_general_notes()
+    {
+        $project = ProjectFactory::create();
+
+        $this->actingAs($project->owner)
+            ->patch($project->path(), $attributes = ['notes' => 'Changed']);
 
         $this->assertDatabaseHas('projects', $attributes);
     }

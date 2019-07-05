@@ -61,6 +61,7 @@ class ManageProjectsTest extends TestCase
     /** @test */
     public function a_user_can_update_a_project()
     {
+        $this->withoutExceptionHandling();
         $project = ProjectFactory::create();
 
         $this->actingAs($project->owner)
@@ -70,6 +71,12 @@ class ManageProjectsTest extends TestCase
         $this->get($project->path() . '/edit')->assertOk();
 
         $this->assertDatabaseHas('projects', $attributes);
+
+        $this->get($project->path())
+            ->assertSee("{$project->owner->name} updated the project")
+            ->assertSee($attributes['title'])
+            ->assertSee($attributes['description'])
+            ->assertSee($attributes['notes']);
     }
 
     /** @test */

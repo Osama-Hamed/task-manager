@@ -42,11 +42,11 @@ class ProjectsController extends Controller
 
     public function update(Project $project)
     {
-    	$this->authorize('update', $project);
+        $this->authorize('update', $project);
 
-    	$project->update($this->validateRequest());
+        $project->update($this->validateRequest());
 
-    	return redirect($project->path());
+        return redirect($project->path());
     }
 
     protected function validateRequest()

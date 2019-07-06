@@ -9,7 +9,16 @@ class ProjectsController extends Controller
 {
 	public function index()
 	{
-		$projects = auth()->user()->projects;
+        // \DB::enableQueryLog();
+
+        // Project::where('owner_id', auth()->id())
+        //     ->orWhereHas('members', function ($query) {
+        //         $query->where('user_id', auth()->id());
+        //     })->get();
+
+        // dd(\DB::getQueryLog());
+
+		$projects = auth()->user()->accessibleProjects();
 
 		return view('projects.index', compact('projects'));
 	}

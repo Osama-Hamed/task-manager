@@ -44,7 +44,8 @@
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                        {{-- {{ Auth::user()->name }} <span class="caret"></span> --}}
+                                        <img width="50" class="rounded-full" src="{{ gravatar_url(auth()->user()->email) }}">
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -66,9 +67,11 @@
             </div>
         </nav>
 
-        <main class="container mx-auto py-6 section">
-            @yield('content')
-        </main>
+        <div class="section">
+            <main class="container mx-auto py-6">
+                @yield('content')
+            </main>
+        </div>
     </div>
 </body>
 </html>

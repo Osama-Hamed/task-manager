@@ -50,4 +50,14 @@ class Project extends Model
             'after' => array_except($this->getChanges(), 'updated_at')
         ];
     }
+
+    public function invite($user)
+    {
+        $this->members()->syncWithoutDetaching($user->id);
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany(User::class, 'project_members');
+    }
 }

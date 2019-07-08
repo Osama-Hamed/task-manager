@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-	<header class="flex items-center mb-3 pb-4">
+	<header class="flex items-center mb-6 pb-4">
 		<div class="flex justify-between items-end w-full">
-			<p class="text-grey text-sm font-normal">
-				<a href="/projects" class="text-grey text-sm font-normal no-underline hover:underline">My Projects</a> / {{ $project->title }}
+			<p class="text-muted font-light">
+				<a href="/projects" class="text-muted no-underline hover:underline">My Projects</a> / {{ $project->title }}
 			</p>
 			
 			<div class="flex items-center">
@@ -31,7 +31,7 @@
 		<div class="lg:flex -mx-3">
 			<div class="lg:w-3/4 px-3 mb-6">
 				<div class="mb-8">
-					<h2 class="text-lg text-grey font-normal mb-3">Tasks</h2>
+					<h2 class="text-lg text-muted font-light mb-3">Tasks</h2>
 
 					@foreach ($project->tasks as $task)
 						<div class="card mb-3">
@@ -39,8 +39,8 @@
 								@method('PATCH')
 								@csrf
 
-								<div class="flex">									
-									<input type="text" name="body" value="{{ $task->body }}" class="w-full {{ $task->completed ? 'text-grey' : '' }}">
+								<div class="flex items-center">									
+									<input type="text" name="body" value="{{ $task->body }}" class="bg-card text-default w-full {{ $task->completed ? 'line-through text-muted' : '' }}">
 									<input type="checkbox" name="completed" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
 								</div>
 							</form>
@@ -51,13 +51,13 @@
 						<form action="{{ $project->path() . '/tasks' }}" method="POST">
 							@csrf
 
-							<input name="body" placeholder="Add a new task..." class="w-full">
+							<input name="body" placeholder="Add a new task..." class="bg-card text-default w-full">
 						</form>
 					</div>
 				</div>
 
 				<div>
-					<h2 class="text-lg text-grey font-normal mb-3">General Notes</h2>
+					<h2 class="text-lg text-muted font-light mb-3">General Notes</h2>
 
 					<form action="{{ $project->path() }}" method="POST">
 						@method('PATCH')
@@ -65,7 +65,7 @@
 
 						<textarea 
 							name="notes"
-							class="card w-full mb-4" 
+							class="card text-default w-full mb-4" 
 							style="min-height: 200px" 
 							placeholder="Any thing special that you want to make a note of?"
 							>{{ $project->notes }}</textarea>

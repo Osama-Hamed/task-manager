@@ -37,7 +37,7 @@ class Project extends Model
     public function recordActivity($description)
     {
         $this->activity()->create([
-            'user_id' => $this->owner_id,
+            'user_id' => auth()->id() ?? $this->owner_id,
             'description' => $description,
             'changes' => $this->activityChanges($description)
         ]);

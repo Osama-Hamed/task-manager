@@ -7,7 +7,7 @@
         @csrf
 
          <div class="mb-3">
-            <input type="email" name="email" class="border border-muted rounded w-full py-2 px-3" placeholder="Email address">
+            <input type="email" name="email" class="border rounded w-full py-2 px-3 {{ $errors->has('email') ? ' border-error' : 'border-muted' }}" placeholder="Email address">
         </div>
 
          <button type="submit" class="button">Invite</button>
@@ -17,7 +17,7 @@
     @if ($errors->any())
         <ul class="field mt-6 list-reset">
             @foreach ($errors->all() as $error)
-                <li class="text-sm text-red">{{ $error }}</li>
+                <li class="text-sm text-error">{{ $error }}</li>
             @endforeach
         </ul>
     @endif

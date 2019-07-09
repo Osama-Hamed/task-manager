@@ -14,7 +14,7 @@
             <div class="control">
                 <input id="name"
                        type="text"
-                       class="input bg-transparent border border-muted-light rounded p-2 text-xs w-full{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                       class="input bg-transparent border border-muted-light rounded p-2 text-xs w-full{{ $errors->has('name') ? ' border-error' : '' }}"
                        name="name"
                        value="{{ old('name') }}"
                        required
@@ -22,7 +22,7 @@
             </div>
 
             @error('name')
-                <p class="text-red text-xs mt-2">{{ $message }}</p>
+                <p class="text-error text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 
@@ -32,14 +32,14 @@
             <div class="control">
                 <input id="email"
                        type="email"
-                       class="input bg-transparent border border-muted-light rounded p-2 text-xs w-full{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                       class="input bg-transparent border border-muted-light rounded p-2 text-xs w-full{{ $errors->has('email') ? ' border-error' : '' }}"
                        name="email"
                        value="{{ old('email') }}"
                        required>
             </div>
 
             @error('email')
-                <p class="text-red text-xs mt-2">{{ $message }}</p>
+                <p class="text-error text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 
@@ -49,13 +49,13 @@
             <div class="control">
                 <input id="password"
                        type="password"
-                       class="input bg-transparent border border-muted-light rounded p-2 text-xs w-full{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                       class="input bg-transparent border border-muted-light rounded p-2 text-xs w-full{{ $errors->has('password') ? ' border-error' : '' }}"
                        name="password"
                        required>
             </div>
 
             @error('password')
-                <p class="text-red text-xs mt-2">{{ $message }}</p>
+                <p class="text-error text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 

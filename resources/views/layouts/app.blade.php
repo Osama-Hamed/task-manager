@@ -43,20 +43,22 @@
                         <!-- Right Side Of Navbar -->
                         <div class="flex items-center ml-auto">
                             <!-- Authentication Links -->
+                            <theme-switcher></theme-switcher>
                             @guest
-                            <a class="nav-link text-default no-underline mr-4" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="text-accent no-underline hover:underline mr-4 font-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))
-                            <a class="nav-link text-default no-underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="text-accent no-underline hover:underline font-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                             @else
-                            <theme-switcher></theme-switcher>
 
-                            <a class="flex items-center text-default no-underline" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a href="/projects" class="text-accent no-underline hover:text-default mr-4 font-bold">Projects</a>
+
+                            <a class="flex items-center text-default no-underline font-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <img width="35" class="rounded-full mr-3" src="{{ gravatar_url(auth()->user()->email) }}">
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <a class="nav-link text-default no-underline ml-4" href="{{ route('logout') }}"
+                            <a class="nav-link text-default no-underline ml-4 font-bold" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}

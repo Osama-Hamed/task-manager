@@ -39,7 +39,18 @@ class ProjectsController extends Controller
     {
         $project = auth()->user()->projects()->create($this->validateRequest());
 
-    	return redirect($project->path());
+        if (request('tasks')) {
+            $tasks = array_filter(request('tasks'), function ($task) {
+                return $task['body'];
+            });
+            
+            if ($tasks) $project->addTasks($tasks);
+        }
+
+
+        if (request()->wantsJson()) return ['message' => $project->path()];
+
+        return redirect($project->path());
     }
 
     public function edit(Project $project)
@@ -54,6 +65,8 @@ class ProjectsController extends Controller
         $this->authorize('update', $project);
 
         $project->update($this->validateRequest());
+
+        if (request()->wantsJson()) return ['message' => $project->path()];
 
         return redirect($project->path());
     }

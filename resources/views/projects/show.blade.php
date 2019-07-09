@@ -22,7 +22,7 @@
                     class="rounded-full w-8 mr-2"
                     title="{{ $project->owner->name }}">
 
-                <a href="{{ $project->path() . '/edit' }}" class="button ml-4">Edit Project</a>
+                <a href="{{ $project->path() . '/edit' }}" class="button ml-4" @click.prevent="$modal.show('edit-project')">Edit Project</a>
             </div>
 		</div>
 	</header>
@@ -40,7 +40,7 @@
 								@csrf
 
 								<div class="flex items-center">									
-									<input type="text" name="body" value="{{ $task->body }}" class="bg-card text-default w-full {{ $task->completed ? 'line-through text-muted' : '' }}">
+									<input type="text" name="body" value="{{ $task->body }}" class="bg-card text-default w-full rounded pl-2 mr-2 {{ $task->completed ? 'line-through text-muted' : '' }}">
 									<input type="checkbox" name="completed" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
 								</div>
 							</form>
@@ -84,4 +84,6 @@
 			</div>
 		</div>
 	</main>
+
+	<edit-project-modal :project="{{ $project }}"></edit-project-modal>
 @endsection

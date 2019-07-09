@@ -513,6 +513,7 @@ table {
   --card-background-color: white;
   --button-background-color: #47cdff;
   --header-background-color: white;
+  --success-background-color: #48bb78;
   --text-default-color: #222;
   --text-accent-color: #47cdff;
   --text-accent-light-color: #8ae2fe;
@@ -527,6 +528,7 @@ table {
   --card-background-color: #1f2027;
   --button-background-color: #59b6f9;
   --header-background-color: #1f2027;
+  --success-background-color: #48bb78;
   --text-default-color: #fff;
   --text-muted-color: rgba(255, 255, 255, .5);
   --text-muted-light-color: rgba(255, 255, 255, .3);
@@ -618,6 +620,10 @@ button {
   background-color: var(--header-background-color);
 }
 
+.bg-success {
+  background-color: var(--success-background-color);
+}
+
 .hover\:bg-page:hover {
   background-color: var(--page-background-color);
 }
@@ -634,6 +640,10 @@ button {
   background-color: var(--header-background-color);
 }
 
+.hover\:bg-success:hover {
+  background-color: var(--success-background-color);
+}
+
 .focus\:bg-page:focus {
   background-color: var(--page-background-color);
 }
@@ -648,6 +658,10 @@ button {
 
 .focus\:bg-header:focus {
   background-color: var(--header-background-color);
+}
+
+.focus\:bg-success:focus {
+  background-color: var(--success-background-color);
 }
 
 .bg-bottom {
@@ -3767,6 +3781,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .sm\:bg-success {
+    background-color: var(--success-background-color);
+  }
+
   .sm\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -3783,6 +3801,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .sm\:hover\:bg-success:hover {
+    background-color: var(--success-background-color);
+  }
+
   .sm\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -3797,6 +3819,10 @@ button {
 
   .sm\:focus\:bg-header:focus {
     background-color: var(--header-background-color);
+  }
+
+  .sm\:focus\:bg-success:focus {
+    background-color: var(--success-background-color);
   }
 
   .sm\:bg-bottom {
@@ -6893,6 +6919,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .md\:bg-success {
+    background-color: var(--success-background-color);
+  }
+
   .md\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -6909,6 +6939,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .md\:hover\:bg-success:hover {
+    background-color: var(--success-background-color);
+  }
+
   .md\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -6923,6 +6957,10 @@ button {
 
   .md\:focus\:bg-header:focus {
     background-color: var(--header-background-color);
+  }
+
+  .md\:focus\:bg-success:focus {
+    background-color: var(--success-background-color);
   }
 
   .md\:bg-bottom {
@@ -10019,6 +10057,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .lg\:bg-success {
+    background-color: var(--success-background-color);
+  }
+
   .lg\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -10035,6 +10077,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .lg\:hover\:bg-success:hover {
+    background-color: var(--success-background-color);
+  }
+
   .lg\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -10049,6 +10095,10 @@ button {
 
   .lg\:focus\:bg-header:focus {
     background-color: var(--header-background-color);
+  }
+
+  .lg\:focus\:bg-success:focus {
+    background-color: var(--success-background-color);
   }
 
   .lg\:bg-bottom {
@@ -13145,6 +13195,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .xl\:bg-success {
+    background-color: var(--success-background-color);
+  }
+
   .xl\:hover\:bg-page:hover {
     background-color: var(--page-background-color);
   }
@@ -13161,6 +13215,10 @@ button {
     background-color: var(--header-background-color);
   }
 
+  .xl\:hover\:bg-success:hover {
+    background-color: var(--success-background-color);
+  }
+
   .xl\:focus\:bg-page:focus {
     background-color: var(--page-background-color);
   }
@@ -13175,6 +13233,10 @@ button {
 
   .xl\:focus\:bg-header:focus {
     background-color: var(--header-background-color);
+  }
+
+  .xl\:focus\:bg-success:focus {
+    background-color: var(--success-background-color);
   }
 
   .xl\:bg-bottom {

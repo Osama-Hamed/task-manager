@@ -292,6 +292,7 @@ module.exports = {
     card: 'var(--card-background-color)',
     button: 'var(--button-background-color)',
     header: 'var(--header-background-color)',
+    success: 'var(--success-background-color)',
   },
 
 
